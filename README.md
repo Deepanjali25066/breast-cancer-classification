@@ -1,18 +1,18 @@
-# Breast Cancer Classification using Deep Learning
+Breast Cancer Classification using Deep Learning
 
-## 📌 Project Overview
+ Project Overview
 This project focuses on classifying breast cancer histopathology images into **Benign** and **Malignant** categories using deep learning. A pre-trained **ResNet50** Convolutional Neural Network (CNN) with transfer learning was used to build an image classification model.
 
 The project demonstrates how deep learning techniques can support medical image analysis and assist in early breast cancer diagnosis.
 
 ---
 
-## 🧠 Problem Statement
+ Problem Statement
 Manual analysis of histopathological images is time-consuming and prone to human error. This project aims to automate the classification of breast cancer images using a CNN-based deep learning model to improve accuracy and efficiency.
 
 ---
 
-## 📊 Dataset Information
+ Dataset Information
 - **Dataset Name:** BreakHis – Breast Cancer Histopathological Images  
 - **Source:** Kaggle  
 - **Image Type:** Histopathology images  
@@ -22,7 +22,7 @@ Manual analysis of histopathological images is time-consuming and prone to human
 
 ---
 
-## 🛠 Tools & Technologies Used
+ Tools & Technologies Used
 - Python  
 - NumPy  
 - Pandas  
@@ -34,7 +34,7 @@ Manual analysis of histopathological images is time-consuming and prone to human
 
 ---
 
-## 🔍 Project Workflow
+Project Workflow
 1. Dataset loading and directory structure verification  
 2. Image preprocessing and augmentation  
 3. Train-validation data generation  
@@ -46,7 +46,7 @@ Manual analysis of histopathological images is time-consuming and prone to human
 
 ---
 
-## 🤖 Model Architecture
+Model Architecture
 - **Base Model:** ResNet50 (pre-trained on ImageNet)  
 - **Custom Layers:**  
   - Global Average Pooling  
@@ -57,7 +57,7 @@ Manual analysis of histopathological images is time-consuming and prone to human
 
 ---
 
-## 📈 Model Performance
+Model Performance
 - **Best Validation Accuracy:** ~93%  
 - **Final Training Accuracy:** ~93%  
 
@@ -65,7 +65,7 @@ Manual analysis of histopathological images is time-consuming and prone to human
 
 ---
 
-## 📌 Key Learnings
+ Key Learnings
 - Implementation of **transfer learning** using ResNet50  
 - Handling class imbalance in medical datasets  
 - Image preprocessing and data augmentation  
@@ -74,12 +74,12 @@ Manual analysis of histopathological images is time-consuming and prone to human
 
 ---
 
-## 📌 Conclusion
+ Conclusion
 The project shows that deep learning models like ResNet50 can effectively classify breast cancer histopathological images. Transfer learning plays a crucial role in achieving high accuracy even with limited medical data, making it suitable for real-world healthcare applications.
 
 ---
 
-## 🚀 Future Improvements
+Future Improvements
 - Experiment with other CNN architectures (EfficientNet, VGG16)  
 - Add explainability techniques like **Grad-CAM**  
 - Deploy the model using Streamlit or Flask  
