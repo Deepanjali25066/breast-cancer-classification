@@ -1,87 +1,103 @@
-Breast Cancer Classification using Deep Learning
+🩺 Breast Cancer Classification using Deep Learning
 
- Project Overview
-This project focuses on classifying breast cancer histopathology images into **Benign** and **Malignant** categories using deep learning. A pre-trained **ResNet50** Convolutional Neural Network (CNN) with transfer learning was used to build an image classification model.
+📌 Project Overview
+Breast cancer is one of the most common cancers among women worldwide. Early and accurate detection plays a crucial role in improving survival rates.
+This project focuses on binary classification of breast cancer images (Benign vs Malignant) using deep learning and transfer learning techniques to assist radiologists with faster and more reliable diagnosis.
+Multiple state-of-the-art models were implemented, fine-tuned, and compared to identify the most effective architecture.
 
-The project demonstrates how deep learning techniques can support medical image analysis and assist in early breast cancer diagnosis.
+🎯 Objectives
+Build an automated breast cancer image classification system
+Apply transfer learning using pretrained models
+Compare CNN, Transformer, and Hybrid architectures
+Improve accuracy while handling class imbalance
+Visualize and analyze model performance
 
----
+🧠 Models Implemented
+🔹 1. ResNet50
+Pretrained on ImageNet (frozen base layers)
+Added:
+Global Average Pooling
+Batch Normalization
+Dense (256, ReLU)
+Dropout (0.5)
+Dense (1, Sigmoid)
+Optimizer: Adam (LR = 0.0005)
+Loss: Binary Cross-Entropy
+Metrics: Accuracy, Precision, Recall
 
- Problem Statement
-Manual analysis of histopathological images is time-consuming and prone to human error. This project aims to automate the classification of breast cancer images using a CNN-based deep learning model to improve accuracy and efficiency.
+🔹 2. EfficientNetV2B0
+Transfer learning with ImageNet weights
+Custom classification head with Dropout & BatchNorm
+Fine-tuning:
+First 140 layers frozen
+Low learning rate (5e-5)
+Callbacks:
+EarlyStopping
+ReduceLROnPlateau
+ModelCheckpoint
+Class weights used to handle imbalance
+Fallback model: MobileNetV2 (if loading fails)
 
----
+🔹 3. Vision Transformer (ViT-B16)
+Pretrained on ImageNet21k + ImageNet2012
+Transformer-based global feature extraction
+Custom dense head with BatchNorm & Dropout
+Optimizer: Adam (LR = 0.0005)
+Loss: Binary Cross-Entropy
+Fallback: MobileNetV2
 
- Dataset Information
-- **Dataset Name:** BreakHis – Breast Cancer Histopathological Images  
-- **Source:** Kaggle  
-- **Image Type:** Histopathology images  
-- **Classes:**  
-  - Benign  
-  - Malignant  
+🔹 4. DenseNet201
+Deep CNN with dense connectivity
+Used for comparative evaluation with other architectures
 
----
+🔹 5. Hybrid Model (EfficientNetV2 + ViT)
+CNN + Transformer fusion model
+EfficientNetV2 captures local spatial features
+ViT captures global contextual features
+Feature concatenation followed by dense layers
+Final Sigmoid output for binary classification
 
- Tools & Technologies Used
-- Python  
-- NumPy  
-- Pandas  
-- Matplotlib  
-- TensorFlow / Keras  
-- Scikit-learn  
-- Google Colab  
-- Kaggle  
+📊 Results & Performance
+All models evaluated using:
+Accuracy
+Precision
+Recall
+Hybrid model showed strong performance by combining CNN and Transformer strengths
+Visualizations included:
+Training vs Validation curves
+Model performance comparison charts
+(Exact metrics can be found in the notebook and presentation)
 
----
+🗂️ Dataset & Preprocessing
+Medical image dataset for breast cancer classification
+Image resizing and normalization
+Train-validation split
+Class imbalance handled using class weights
+Data augmentation applied for better generalization
 
-Project Workflow
-1. Dataset loading and directory structure verification  
-2. Image preprocessing and augmentation  
-3. Train-validation data generation  
-4. Handling class imbalance using class weights  
-5. Model building using **ResNet50 (Transfer Learning)**  
-6. Model training with callbacks  
-7. Fine-tuning selected layers  
-8. Model evaluation using accuracy and loss metrics  
+🛠️ Technologies Used
+Python
+TensorFlow / Keras
+NumPy, Pandas
+Matplotlib, Seaborn
+Transfer Learning
+Vision Transformers
 
----
+📁 Repository Structure
+breast-cancer-classification/
+│
+├── notebook/
+│   └── breat-cancer-classification-4-3.ipynb
+│
+├── README.md
 
-Model Architecture
-- **Base Model:** ResNet50 (pre-trained on ImageNet)  
-- **Custom Layers:**  
-  - Global Average Pooling  
-  - Dense layers  
-  - Softmax output layer  
-- **Loss Function:** Categorical Crossentropy  
-- **Optimizer:** Adam  
+🚀 Future Improvements
+Use larger and more diverse datasets
+Apply explainable AI techniques (Grad-CAM)
+Optimize inference speed for real-time use
+Deploy model using Flask / Streamlit
 
----
-
-Model Performance
-- **Best Validation Accuracy:** ~93%  
-- **Final Training Accuracy:** ~93%  
-
-*(Results may vary based on dataset split and training configuration.)*
-
----
-
- Key Learnings
-- Implementation of **transfer learning** using ResNet50  
-- Handling class imbalance in medical datasets  
-- Image preprocessing and data augmentation  
-- Training and fine-tuning deep learning models  
-- Applying deep learning in healthcare use cases  
-
----
-
- Conclusion
-The project shows that deep learning models like ResNet50 can effectively classify breast cancer histopathological images. Transfer learning plays a crucial role in achieving high accuracy even with limited medical data, making it suitable for real-world healthcare applications.
-
----
-
-Future Improvements
-- Experiment with other CNN architectures (EfficientNet, VGG16)  
-- Add explainability techniques like **Grad-CAM**  
-- Deploy the model using Streamlit or Flask  
-- Evaluate performance on unseen datasets  
-
+👩‍💻 Author
+Deepanjali Thakur
+M.Sc Data Science & Artificial Intelligence
+Roll No: 24006
